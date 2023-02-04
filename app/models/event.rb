@@ -3,9 +3,5 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :attendees, through: :attendances
 
-  validates :date, :location, presence: true
-
-  def name
-    "Event #{id} at #{location}, hosted by #{creator.username}"
-  end
+  validates :date, :location, :name, presence: true
 end
