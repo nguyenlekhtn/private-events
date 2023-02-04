@@ -6,6 +6,6 @@ class Event < ApplicationRecord
   validates :date, :location, presence: true
 
   def name
-    "Event #{id} at #{location}, hosted by #{this.creator.username}"
+    "Event #{id} at #{location}, hosted by #{creator.username}"
   end
 end

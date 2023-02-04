@@ -15,12 +15,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_001633) do
   enable_extension "plpgsql"
 
   create_table "attendances", force: :cascade do |t|
-    t.bigint "attendees_id"
-    t.bigint "events_id"
+    t.bigint "attendee_id"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["attendees_id"], name: "index_attendances_on_attendees_id"
-    t.index ["events_id"], name: "index_attendances_on_events_id"
+    t.index ["attendee_id"], name: "index_attendances_on_attendee_id"
+    t.index ["event_id"], name: "index_attendances_on_event_id"
   end
 
   create_table "attendees_users", force: :cascade do |t|
@@ -55,8 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_001633) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "attendances", "events", column: "events_id"
-  add_foreign_key "attendances", "users", column: "attendees_id"
+  add_foreign_key "attendances", "events"
+  add_foreign_key "attendances", "users", column: "attendee_id"
   add_foreign_key "attendees_users", "events"
   add_foreign_key "attendees_users", "users", column: "attendee_id"
   add_foreign_key "events", "users", column: "creator_id"
