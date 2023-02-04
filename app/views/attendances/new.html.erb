@@ -1,1 +1,9 @@
-<%=  %>
+<%= form_with model: @attendance do |form|  %>
+  <div class="field">
+    <%= form.label :event_id, "Select the event" %>
+    <%= form.collection_select :event_id, Event.order(:creator_id), :id, :name   %>
+  </div>
+  <%= form.submit %>
+
+<% end %>
+  
