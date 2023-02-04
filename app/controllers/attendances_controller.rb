@@ -4,8 +4,10 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    @event = Event.find(params[:event_id])
-    current_user.attended_events << @event
+    @attendance = current_user.attendances.new(attedance_params)
+    if @attendance.save
+      redirect_to event_path(@attendance.attendee_id)
+    end
   end
 
   def attedance_params

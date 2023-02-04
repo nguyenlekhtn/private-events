@@ -1,4 +1,15 @@
 <div class="event_new">
+  <% if @event.errors.any? %>
+    <div id="error_explaintion">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% @event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <h1>Create a new event:</h1>
   <%= form_with model: @event do |form| %>
     <div class="field">
