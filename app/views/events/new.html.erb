@@ -1,14 +1,18 @@
 <div class="event_new">
   <h1>Create a new event:</h1>
   <%= form_with model: @event do |form| %>
-    <p>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
       <%= form.label :date %>
       <%= form.date_field :date %>
-    </p
-    <p>
+    </div>
+    <div class="field">
       <%= form.label :location %>
       <%= form.text_field :location %>
-    </p>
+    </div>
     <%= form.submit %>
   <% end %>
 </div>
