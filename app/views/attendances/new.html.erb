@@ -1,9 +1,9 @@
 <%= form_with model: @attendance do |form|  %>
   <div class="field">
-    <%= form.label :event_id, "Select the event" %>
-    <%= form.collection_select :event_id, Event.order(:creator_id), :id, :name   %>
+    <p>Select the event you want to attend:</p>
+    <%= form.collection_select :event_id, Event.where.not(creator: current_user), :id, :name   %>
   </div>
-  <%= form.submit %>
+  <%= form.submit "Confirm" %>
 
 <% end %>
   
