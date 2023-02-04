@@ -2,3 +2,9 @@
 <p>Name: <%= @event.name %></p>
 <p>Date: <%= @event.date %></p>
 <p>Location: <%= @event.location %></p>
+Attendeees:
+<ul>
+  <% @event.attendees.each_with_index do |attendee, index| %>
+    <li><%= index + 1 %>: <%= attendee.username %></li>
+  <% end %>
+</ul>
