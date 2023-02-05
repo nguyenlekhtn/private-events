@@ -1,7 +1,7 @@
 <%= form_with model: @attendance do |form|  %>
   <div class="field">
     <p>Select the event you want to attend:</p>
-    <%= form.collection_select :event_id, Event.where.not(creator: current_user), :id, :name   %>
+    <%= form.collection_select :event_id, Event.joins(:attendances).where('attendaces.attendee_id' => current_user.id).and(Event.where.not(creator: current_user)), :id, :name   %>
   </div>
   <%= form.submit "Confirm" %>
 
