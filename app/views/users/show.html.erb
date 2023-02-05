@@ -1,7 +1,24 @@
 <p>Email: <%= @user.email %></p>
-<p>Events:</p>
+<p>Created events:</p>
 <ul>
   <% @user.created_events.each do |event| %>
     <%= render event %>
   <% end %>
 </ul>
+<p>Attended events:</p>
+<div class="occured">
+  <p>Occured</p>
+  <ul>
+    <% @user.attended_events.where("date <= :today", {today: Date.current}) do |event| %>
+      <%= render event %>
+    <% end %>
+  </ul>
+</div>
+<div class="will-occur">
+  <p>Will occur</p>
+  <ul>
+    <% @user.attended_events.where("date > :today", {today: Date.current}) do |event| %>
+      <%= render event %>
+    <% end %>
+  </ul>
+</div>

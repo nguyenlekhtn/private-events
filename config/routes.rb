@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "events#index"
+  get 'profile', to: 'users#show'
   resources :events, only: [:index, :new, :create, :show]
   resources :users, only: [:show]
   resources :attendances, only: [:new, :create]
