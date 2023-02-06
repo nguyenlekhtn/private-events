@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  list-style-type: none;
+  padding: 5px;
+}
+
+.nav-item a {
+  list-style-type: none;
+  text-decoration: none;
+}
