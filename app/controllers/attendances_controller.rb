@@ -6,12 +6,8 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    @attendance = current_user.attendances.new(attedance_params)
-    if @attendance.save
-      redirect_to event_path(@attendance.event_id)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @event = Event.find(params[:event_id])
+    @event.attedandees << current_user
   end
 
   def attedance_params

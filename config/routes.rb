@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "events#index"
   get 'profile', to: 'users#show', as: :profile
-  resources :events, only: [:index, :new, :create, :show]
+  resources :events, only: [:index, :new, :create, :show] do
+    resources :attendances, only: [:new, :create]
+  end
   resources :users, only: [:show]
-  resources :attendances, only: [:new, :create]
 end
