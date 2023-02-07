@@ -1,7 +1,9 @@
 <li>
-  <p>Name <%= event.name %> </p>
+  <%= link_to event do %>
+      <p>Name <%= event.name %> </p>
+  <% end %>
   <p>Date: <%= event.date %></p>
   <p>Location: <%= event.location %></p>
   <p>Creator: <%= event.creator.username %></p>
-  <%= link_to "Link", event %>
+  <%= yield event %>
 </li>

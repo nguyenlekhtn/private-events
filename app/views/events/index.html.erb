@@ -1,4 +1,12 @@
 <h1>Events</h1>
 <ul>
-  <%= render @events %>
+  <% @events.each do |event| %>
+    <%= render event do |ev| %>
+      <% if current_user.attended_events.where(id: ev.id).exists? %>
+        <p>Registed</p>
+      <% else %>
+        <%= link_to "Register", new_event_attendance_path(ev.id) %>
+      <% end %>
+    <% end %>
+  <% end %>
 </ul>
