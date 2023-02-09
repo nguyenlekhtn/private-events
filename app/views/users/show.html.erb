@@ -7,7 +7,7 @@
 </ul>
 <p>Attended events:</p>
 <div class="occured">
-  <p>Occured</p>
+  <p>Past events</p>
   <ul>
     <% @user.attended_events.where("date <= :today", {today: Date.current}).each do |event| %>
       <%= render event %>
@@ -15,7 +15,7 @@
   </ul>
 </div>
 <div class="will-occur">
-  <p>Will occur</p>
+  <p>Upcoming events</p>
   <ul>
     <% @user.attended_events.where("date > :today", {today: Date.current}).each do |event| %>
       <%= render event %>

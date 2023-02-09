@@ -1,6 +1,6 @@
 <h1>Form Registration</h1>
-<%= render "event/_event" %>
-<%= form_with url: event_attendances do |form| %>
+<%= render @event %>
+<%= form_with url: event_attendances_path do |form| %>
   <%= form.submit "Register" %>
 <% end %>
 
