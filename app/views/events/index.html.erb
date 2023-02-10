@@ -2,7 +2,7 @@
 <div>
   <div class="events_group">
     <h2>Past events</h2>
-    <% @events.past_events.each do |event| %>
+    <% @events.past.each do |event| %>
       <ul>
         <%= render event do |ev| %>
           <% if current_user.attended_events.where(id: ev.id).exists? %>
@@ -16,7 +16,7 @@
   </div>
   <div class="events_group">
     <h2>Upcoming events</h2>
-    <% @events.upcoming_events.each do |event| %>
+    <% @events.upcoming.each do |event| %>
       <ul>
         <%= render event do |ev| %>
           <% if current_user.attended_events.where(id: ev.id).exists? %>
