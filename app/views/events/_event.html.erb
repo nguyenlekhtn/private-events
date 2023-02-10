@@ -4,6 +4,6 @@
   <% end %>
   <p>Date: <%= event.date %></p>
   <p>Location: <%= event.location %></p>
-  <p>Creator: <%= event.creator.username %></p>
+  <p>Creator: <%= link_to event.creator.username, event.creator %></p>
   <%= yield event %>
 </li>
