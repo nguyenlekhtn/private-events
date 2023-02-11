@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root "events#index"
   get 'profile', to: 'users#show', as: :profile
   resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    resources :attendances, only: [:new, :create]
+    resources :attendances, only: [:new, :create, :destroy]
   end
   resources :users, only: [:show]
 end

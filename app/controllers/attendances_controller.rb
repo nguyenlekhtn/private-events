@@ -11,6 +11,11 @@ class AttendancesController < ApplicationController
     redirect_to @event
   end
 
+  def destroy
+    @attendance = current_user.attendances.find_by('event_id = ?', params[:event_id])
+    @attendance.destroy
+  end
+
   def attedance_params
     params.require(:attendance).permit(:event_id)
   end
