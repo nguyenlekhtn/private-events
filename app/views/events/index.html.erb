@@ -19,12 +19,6 @@
     <% @events.upcoming.each do |event| %>
       <ul>
         <%= render event %>
-          <% if current_user.attended_events.where(id: ev.id).exists? %>
-            <p>Registed</p>
-          <% elsif ev.not_happended?  %>
-            <%= link_to "Register", new_event_attendance_path(ev) %>
-          <% end %>
-        <% end %>
       </ul>
     <% end %>
   </div>
