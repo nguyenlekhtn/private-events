@@ -8,3 +8,7 @@ Attendeees:
     <li><%= index + 1 %>: <%= attendee.username %></li>
   <% end %>
 </ul>
+
+<% if @event.creator.id == current_user.id %>
+  <%= link_to "Edit", edit_event_path(@event) %>
+<% end %>

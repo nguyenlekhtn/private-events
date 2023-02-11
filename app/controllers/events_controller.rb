@@ -23,12 +23,12 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
+    @event = current_user.created_events.find_by(id: params[:id])
   end
 
   def update
-    @event = Event.find(params[:id])
-    if @event.update(event_params)
+    @event = current_user.created_events.find_by(id: params[:id])
+    if @event&.update(event_params)
       redirect_to @event
     else
       render :edit, status: :unprocessable_entity

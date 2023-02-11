@@ -1,4 +1,8 @@
 <h1>Edit event</h1>
-<div class="edit-event-form">
-  <%= render "event_form", event: @event %>
-</div>
+<% if @event %>
+  <div class="edit-event-form">
+    <%= render "event_form", event: @event %>
+  </div>
+<% else %>
+  <p>This event does not exists or you don't have permission to change it</p>
+<% end %>
