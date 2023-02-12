@@ -15,6 +15,12 @@ Attendeees:
         turbo_method: :delete, 
         turbo_confirm: "Are you sure" 
         } %>
-<% elsif @event.not_happended?  %>
+<% end %>
+<% unless @attendance  %>
   <%= link_to "Register", new_event_attendance_path(@event) %>
+<% else %>
+  <%= link_to "Remove as attendee", [@event, @attendance], data: { 
+        turbo_method: :delete, 
+        turbo_confirm: "Are you sure" 
+  } %>
 <% end %>

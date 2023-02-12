@@ -12,8 +12,9 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
-    @attendance = current_user.attendances.find_by('event_id = ?', params[:event_id])
-    @attendance.destroy
+    current_user.attended_events.delete(Event.find(params[:event_id]))
+
+    redirect_to current_user
   end
 
   def attedance_params
