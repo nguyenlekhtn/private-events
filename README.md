@@ -7,3 +7,7 @@ A user can creates. A user can attend many events. An event can be attended by m
 The feature is based on the requirements from [The Odin Project's project](https://www.theodinproject.com/lessons/ruby-on-rails-private-events)
 
 Live site: https://private-events.learneveryday.dev/
+
+## TODO
+* Make each event private and add the functionality for the event creator to invite specific users to an event.
+* Prevent user from attending past event not only by Event#show condition but also stop users from accessing the registeration form.
