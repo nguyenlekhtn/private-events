@@ -17,7 +17,9 @@ Attendeees:
         } %>
 <% end %>
 <% unless @attendance  %>
-  <%= link_to "Register", new_event_attendance_path(@event) %>
+  <% unless @event.happened? %>
+      <%= link_to "Register", new_event_attendance_path(@event) %>
+  <% end %>
 <% else %>
   <%= link_to "Remove as attendee", [@event, @attendance], data: { 
         turbo_method: :delete, 
